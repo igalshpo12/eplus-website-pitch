@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>אלקטריק פלוס — מוצרי חשמל ואלקטרוניקה</title>
+<meta name="description" content="אלקטריק פלוס — מוצרי החשמל והאלקטרוניקה המובילים בעולם, עם ייעוץ אישי, התקנה מקצועית ומשלוח עד הבית.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800;900&family=Rubik:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   ELECTRIC PLUS — Option 4: GLASS & GLOW FUTURISTIC
+   Single self-contained file. Navy + white/silver + azure glow.
+   ============================================================ */
+:root{
+  --navy-950:#070C20;
+  --navy-900:#0A1230;
+  --navy-850:#0E1838;
+  --navy-800:#101A40;
+  --navy-700:#16224F;
+  --navy-600:#1E2F66;
+  --navy-500:#2A4088;
+  --azure-400:#5B8DEF;
+  --azure-300:#86ABF6;
+  --silver-700:#7E8AA6;
+  --silver-500:#AAB6CE;
+  --silver-300:#C8D2E6;
+  --silver-100:#E9EEFA;
+  --white:#FFFFFF;
+
+  --glass-fill: rgba(255,255,255,.065);
+  --glass-fill-2: rgba(255,255,255,.10);
+  --glass-border: rgba(255,255,255,.14);
+  --glass-hi: inset 0 1px 0 rgba(255,255,255,.22);
+  --shadow-soft: 0 24px 60px -20px rgba(2,6,22,.75);
+  --ease-out: cubic-bezier(.22,1,.36,1);
+  --ease-io: cubic-bezier(.65,0,.35,1);
+  --maxw: 1240px;
+  --r-lg: 26px;
+  --r-md: 18px;
+  --r-sm: 13px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth; overflow-x:hidden}
+body{
+  font-family:'Heebo','Rubik',system-ui,-apple-system,sans-serif;
+  background:var(--navy-950);
+  color:var(--silver-100);
+  line-height:1.7;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  position:relative;
+  min-height:100vh;
+}
+
+/* fixed navy base + grain-free deep gradient under aurora */
+.bg-base{
+  position:fixed; inset:0; z-index:-3;
+  background:
+    radial-gradient(1200px 900px at 78% -8%, rgba(30,47,102,.55), transparent 60%),
+    radial-gradient(1000px 800px at 12% 8%, rgba(16,26,64,.7), transparent 55%),
+    linear-gradient(180deg, var(--navy-950) 0%, var(--navy-900) 45%, var(--navy-950) 100%);
+}
+
+/* ============================================================
+   AURORA — slow drifting/breathing blurred glow blobs
+   ============================================================ */
+.aurora{position:fixed; inset:-10%; z-index:-2; overflow:hidden; pointer-events:none; filter:blur(8px)}
+.blob{position:absolute; border-radius:50%; mix-blend-mode:screen; opacity:.55; will-change:transform,opacity}
+.blob.b1{width:46vw;height:46vw;left:-6vw;top:-8vw;
+  background:radial-gradient(circle at 50% 50%, rgba(91,141,239,.50), rgba(42,64,136,.18) 45%, transparent 70%);
+  animation:drift1 26s var(--ease-io) infinite}
+.blob.b2{width:54vw;height:54vw;right:-12vw;top:2vw;
+  background:radial-gradient(circle at 50% 50%, rgba(30,47,102,.85), rgba(30,47,102,.25) 50%, transparent 72%);
+  animation:drift2 32s var(--ease-io) infinite}
+.blob.b3{width:40vw;height:40vw;left:24vw;top:46vh;
+  background:radial-gradient(circle at 50% 50%, rgba(91,141,239,.32), rgba(22,34,79,.16) 48%, transparent 70%);
+  animation:drift3 38s var(--ease-io) infinite}
+.blob.b4{width:60vw;height:60vw;right:-18vw;bottom:-22vw;
+  background:radial-gradient(circle at 50% 50%, rgba(42,64,136,.55), rgba(14,24,56,.2) 50%, transparent 72%);
+  animation:drift4 30s var(--ease-io) infinite}
+
+@keyframes drift1{0%,100%{transform:translate3d(0,0,0) scale(1);opacity:.5}50%{transform:translate3d(8vw,6vh,0) scale(1.18);opacity:.7}}
+@keyframes drift2{0%,100%{transform:translate3d(0,0,0) scale(1.05);opacity:.55}50%{transform:translate3d(-7vw,8vh,0) scale(.9);opacity:.4}}
+@keyframes drift3{0%,100%{transform:translate3d(0,0,0) scale(1);opacity:.35}50%{transform:translate3d(-6vw,-7vh,0) scale(1.2);opacity:.6}}
+@keyframes drift4{0%,100%{transform:translate3d(0,0,0) scale(1);opacity:.5}50%{transform:translate3d(6vw,-6vh,0) scale(1.12);opacity:.65}}
+
+/* faint grid overlay for tech depth */
+.grid-fx{position:fixed; inset:0; z-index:-1; pointer-events:none; opacity:.35;
+  background-image:
+    linear-gradient(rgba(170,182,206,.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(170,182,206,.045) 1px, transparent 1px);
+  background-size:64px 64px;
+  -webkit-mask-image:radial-gradient(ellipse 80% 60% at 50% 30%, #000, transparent 80%);
+  mask-image:radial-gradient(ellipse 80% 60% at 50% 30%, #000, transparent 80%);
+}
+
+/* ============================================================
+   GLASS UTILITY
+   ============================================================ */
+.glass{
+  background:
+    linear-gradient(160deg, rgba(255,255,255,.09), rgba(255,255,255,.02) 60%),
+    var(--glass-fill);
+  -webkit-backdrop-filter:blur(18px) saturate(125%);
+  backdrop-filter:blur(18px) saturate(125%);
+  border:1px solid var(--glass-border);
+  box-shadow:var(--shadow-soft), var(--glass-hi);
+  border-radius:var(--r-lg);
+}
+
+.wrap{max-width:var(--maxw); margin:0 auto; padding:0 24px}
+
+/* ============================================================
+   NAV — floating glass, spaced from edges
+   ============================================================ */
+.nav-shell{position:fixed; top:18px; left:0; right:0; z-index:100; padding:0 24px; transition:top .4s var(--ease-out)}
+.nav{
+  max-width:var(--maxw); margin:0 auto;
+  display:flex; align-items:center; justify-content:space-between; gap:18px;
+  padding:11px 20px; border-radius:20px;
+  background:linear-gradient(160deg, rgba(255,255,255,.10), rgba(255,255,255,.02) 70%), rgba(10,18,48,.55);
+  -webkit-backdrop-filter:blur(20px) saturate(130%);
+  backdrop-filter:blur(20px) saturate(130%);
+  border:1px solid var(--glass-border);
+  box-shadow:0 18px 44px -22px rgba(2,6,22,.8), var(--glass-hi);
+}
+.nav.scrolled{background:linear-gradient(160deg, rgba(255,255,255,.10), rgba(255,255,255,.02) 70%), rgba(8,14,38,.78)}
+
+/* logo */
+.logo{display:flex; align-items:center; gap:11px; color:var(--white); text-decoration:none; cursor:pointer; flex-shrink:0}
+.logo-mark{color:var(--white); filter:drop-shadow(0 0 10px rgba(91,141,239,.45)); flex-shrink:0}
+.logo-word{display:flex; flex-direction:column; line-height:1.05}
+.logo-word b{font-size:1.06rem; font-weight:800; letter-spacing:-.01em; color:var(--white)}
+.logo-word i{font-style:normal; font-size:.58rem; font-weight:500; letter-spacing:.16em; color:var(--silver-500); text-transform:uppercase; margin-top:2px}
+
+.nav-links{display:flex; align-items:center; gap:4px; list-style:none}
+.nav-links a{
+  display:block; color:var(--silver-300); text-decoration:none; font-size:.9rem; font-weight:500;
+  padding:8px 11px; border-radius:10px; white-space:nowrap; cursor:pointer;
+  transition:color .2s var(--ease-out), background .2s var(--ease-out);
+}
+.nav-links a:hover, .nav-links a:focus-visible{color:var(--white); background:rgba(91,141,239,.14)}
+
+.nav-utils{display:flex; align-items:center; gap:6px; flex-shrink:0}
+.icon-btn{
+  display:grid; place-items:center; width:40px; height:40px; border-radius:11px; cursor:pointer;
+  background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.10); color:var(--silver-300);
+  transition:all .2s var(--ease-out);
+}
+.icon-btn:hover, .icon-btn:focus-visible{color:var(--white); border-color:rgba(91,141,239,.55); box-shadow:0 0 0 3px rgba(91,141,239,.18)}
+.icon-btn svg{width:20px;height:20px}
+.nav-toggle{display:none}
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:9px;
+  font-family:inherit; font-size:1rem; font-weight:700; cursor:pointer;
+  padding:14px 26px; border-radius:14px; text-decoration:none; border:1px solid transparent;
+  transition:transform .25s var(--ease-out), box-shadow .25s var(--ease-out), background .25s var(--ease-out);
+  white-space:nowrap;
+}
+.btn svg{width:19px;height:19px}
+.btn-primary{
+  color:var(--white);
+  background:linear-gradient(135deg, var(--azure-400), var(--navy-500) 90%);
+  border-color:rgba(134,171,246,.6);
+  box-shadow:0 12px 30px -8px rgba(91,141,239,.55), inset 0 1px 0 rgba(255,255,255,.3);
+}
+.btn-primary:hover, .btn-primary:focus-visible{transform:translateY(-2px); box-shadow:0 18px 42px -8px rgba(91,141,239,.75), inset 0 1px 0 rgba(255,255,255,.4)}
+.btn-ghost{
+  color:var(--silver-100);
+  background:rgba(255,255,255,.06);
+  border-color:rgba(255,255,255,.18);
+  -webkit-backdrop-filter:blur(12px); backdrop-filter:blur(12px);
+}
+.btn-ghost:hover, .btn-ghost:focus-visible{transform:translateY(-2px); color:var(--white); border-color:rgba(134,171,246,.55); box-shadow:0 0 0 3px rgba(91,141,239,.16)}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{position:relative; min-height:clamp(680px, 94svh, 1000px); display:flex; flex-direction:column; align-items:center; justify-content:center;
+  padding:150px 24px 70px; text-align:center; overflow:hidden}
+
+.eyebrow{
+  display:inline-flex; align-items:center; gap:9px; margin:0 auto 22px;
+  padding:8px 16px; border-radius:999px; font-size:.82rem; font-weight:600; letter-spacing:.04em;
+  color:var(--azure-300);
+  background:rgba(91,141,239,.10); border:1px solid rgba(91,141,239,.30);
+  -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px);
+}
+.eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--azure-400);box-shadow:0 0 12px 2px rgba(91,141,239,.8);animation:pulse 2.4s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.7)}}
+
+.hero h1{
+  font-size:clamp(2.6rem, 7vw, 5.4rem); font-weight:900; line-height:1.03; letter-spacing:-.02em;
+  color:var(--white); margin-bottom:20px; max-width:14ch;
+  text-shadow:0 4px 40px rgba(7,12,32,.7);
+}
+.hero h1 .accent{
+  background:linear-gradient(120deg, var(--azure-300), var(--silver-100) 55%, var(--azure-400));
+  -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
+  text-shadow:0 0 50px rgba(91,141,239,.45);
+}
+.hero .sub{font-size:clamp(1.02rem,1.6vw,1.28rem); color:var(--silver-300); max-width:54ch; margin:0 auto 34px; font-weight:300}
+.hero-cta{display:flex; gap:14px; justify-content:center; flex-wrap:wrap; position:relative; z-index:5}
+
+/* the floating product stage */
+.stage{position:relative; width:min(960px,100%); margin:60px auto 0; height:clamp(320px,46vw,560px)}
+.stage-glow{position:absolute; inset:0; margin:auto; width:78%; height:74%; top:0;bottom:0;left:0;right:0; border-radius:50%;
+  background:radial-gradient(circle, rgba(91,141,239,.45), rgba(42,64,136,.14) 50%, transparent 70%);
+  filter:blur(30px); will-change:transform}
+.product-layer{position:absolute; inset:0; display:grid; place-items:center; will-change:transform}
+.product-float{animation:float 7s var(--ease-io) infinite; will-change:transform}
+@keyframes float{0%,100%{transform:translateY(0) rotate(-.4deg)}50%{transform:translateY(-22px) rotate(.4deg)}}
+.product-img{
+  width:min(880px,100%); height:auto; display:block;
+  -webkit-mask-image:radial-gradient(ellipse 72% 78% at 50% 48%, #000 52%, rgba(0,0,0,.4) 76%, transparent 100%);
+  mask-image:radial-gradient(ellipse 72% 78% at 50% 48%, #000 52%, rgba(0,0,0,.4) 76%, transparent 100%);
+  filter:drop-shadow(0 40px 50px rgba(2,6,22,.7));
+}
+
+/* floating spec chips */
+.chip{
+  position:absolute; display:inline-flex; align-items:center; gap:8px; z-index:6;
+  padding:9px 15px; border-radius:999px; font-size:.85rem; font-weight:700; color:var(--white);
+  background:linear-gradient(160deg, rgba(255,255,255,.13), rgba(255,255,255,.03)), rgba(14,24,56,.5);
+  -webkit-backdrop-filter:blur(14px); backdrop-filter:blur(14px);
+  border:1px solid rgba(255,255,255,.18);
+  box-shadow:0 14px 30px -12px rgba(2,6,22,.8), inset 0 1px 0 rgba(255,255,255,.25);
+  will-change:transform;
+}
+.chip svg{width:16px;height:16px;color:var(--azure-300)}
+.chip .ci{display:inline-flex; animation:bob 5.5s var(--ease-io) infinite}
+.chip.c1{top:6%; right:6%}
+.chip.c2{top:24%; left:3%}
+.chip.c3{bottom:20%; right:2%}
+.chip.c4{bottom:8%; left:10%}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+.chip.c2 .ci{animation-delay:-1.6s}
+.chip.c3 .ci{animation-delay:-3s}
+.chip.c4 .ci{animation-delay:-2.2s}
+
+.scroll-cue{position:absolute; bottom:22px; left:50%; transform:translateX(-50%); display:flex; flex-direction:column; align-items:center; gap:7px; color:var(--silver-500); font-size:.72rem; letter-spacing:.18em; font-weight:600; z-index:5}
+.scroll-cue .mouse{width:22px;height:34px;border:1.5px solid var(--silver-500);border-radius:12px;position:relative}
+.scroll-cue .mouse::after{content:"";position:absolute;left:50%;top:6px;transform:translateX(-50%);width:3px;height:6px;border-radius:2px;background:var(--azure-300);animation:wheel 1.8s var(--ease-io) infinite}
+@keyframes wheel{0%{opacity:0;transform:translate(-50%,0)}40%{opacity:1}100%{opacity:0;transform:translate(-50%,12px)}}
+
+/* ============================================================
+   SECTION SHELL
+   ============================================================ */
+section{position:relative; padding:clamp(70px,9vw,120px) 0}
+.sec-head{max-width:680px; margin:0 0 48px}
+.sec-tag{display:inline-flex; align-items:center; gap:8px; font-size:.78rem; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:var(--azure-300); margin-bottom:14px}
+.sec-tag::before{content:"";width:26px;height:1px;background:linear-gradient(90deg, var(--azure-400), transparent)}
+.sec-head h2{font-size:clamp(1.9rem,3.6vw,3rem); font-weight:800; color:var(--white); line-height:1.1; letter-spacing:-.02em; margin-bottom:14px}
+.sec-head p{color:var(--silver-500); font-size:1.05rem; font-weight:300; max-width:52ch}
+
+/* reveal */
+.reveal{opacity:0; transform:translateY(34px); transition:opacity .8s var(--ease-out), transform .8s var(--ease-out)}
+.reveal.in{opacity:1; transform:none}
+
+/* ============================================================
+   CATEGORIES — glass cards
+   ============================================================ */
+.cat-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:18px}
+.cat-card{
+  position:relative; border-radius:var(--r-md); overflow:hidden; cursor:pointer; min-height:230px;
+  display:flex; flex-direction:column; justify-content:flex-end;
+  border:1px solid var(--glass-border);
+  background:rgba(14,24,56,.4);
+  box-shadow:var(--shadow-soft);
+  transition:transform .4s var(--ease-out), box-shadow .4s var(--ease-out), border-color .4s var(--ease-out);
+}
+.cat-card .ph{position:absolute; inset:0; z-index:0}
+.cat-card .ph img{width:100%; height:100%; object-fit:cover; filter:saturate(.8) brightness(.6); transition:transform .7s var(--ease-out), filter .5s var(--ease-out)}
+.cat-card .ph::after{content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(7,12,32,.3) 0%, rgba(10,18,48,.55) 52%, rgba(7,12,32,.94) 100%)}
+.cat-card .cc{position:relative; z-index:2; padding:18px 18px 17px; display:flex; align-items:center; justify-content:space-between; gap:10px}
+.cat-card .cc h3{font-size:1.18rem; font-weight:800; color:var(--white)}
+.cat-card .cc .go{display:grid; place-items:center; width:34px;height:34px; border-radius:50%; background:rgba(255,255,255,.10); border:1px solid rgba(255,255,255,.18); color:var(--white); flex-shrink:0; transition:all .3s var(--ease-out)}
+.cat-card .cc .go svg{width:17px;height:17px}
+.cat-card:hover{transform:translateY(-6px); border-color:rgba(134,171,246,.55); box-shadow:0 30px 60px -22px rgba(91,141,239,.4), var(--glass-hi)}
+.cat-card:hover .ph img{transform:scale(1.08); filter:saturate(1) brightness(.72)}
+.cat-card:hover .cc .go{background:var(--azure-400); border-color:var(--azure-300); box-shadow:0 0 18px rgba(91,141,239,.7)}
+.cat-card.wide{grid-column:span 2}
+
+/* ============================================================
+   FEATURED PRODUCTS
+   ============================================================ */
+.prod-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:18px}
+.prod-card{
+  position:relative; border-radius:var(--r-md); overflow:hidden; cursor:pointer; display:flex; flex-direction:column;
+  background:linear-gradient(160deg, rgba(255,255,255,.085), rgba(255,255,255,.02) 60%), rgba(14,24,56,.45);
+  -webkit-backdrop-filter:blur(16px); backdrop-filter:blur(16px);
+  border:1px solid var(--glass-border);
+  box-shadow:var(--shadow-soft), var(--glass-hi);
+  transition:transform .4s var(--ease-out), box-shadow .4s var(--ease-out), border-color .4s var(--ease-out);
+}
+.prod-media{position:relative; aspect-ratio:4/3; overflow:hidden; background:var(--navy-850)}
+.prod-media img{width:100%; height:100%; object-fit:cover; filter:saturate(.78) brightness(.74); transition:transform .7s var(--ease-out)}
+.prod-media::after{content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(10,18,48,.34) 0%, rgba(10,18,48,.30) 45%, rgba(10,18,48,.64) 100%)}
+.tag{position:absolute; top:12px; inset-inline-start:12px; z-index:3; font-size:.72rem; font-weight:800; letter-spacing:.04em; padding:5px 11px; border-radius:999px; color:var(--white);
+  background:linear-gradient(135deg, var(--azure-400), var(--navy-500)); border:1px solid rgba(134,171,246,.6); box-shadow:0 6px 16px -4px rgba(91,141,239,.6)}
+.tag.muted{background:rgba(255,255,255,.10); border-color:rgba(255,255,255,.2); color:var(--silver-100)}
+.prod-body{padding:16px 16px 18px; display:flex; flex-direction:column; gap:7px; flex:1}
+.prod-brand{font-size:.74rem; font-weight:700; letter-spacing:.18em; text-transform:uppercase; color:var(--azure-300)}
+.prod-name{font-size:1.04rem; font-weight:700; color:var(--white); line-height:1.35}
+.prod-foot{margin-top:auto; display:flex; align-items:center; justify-content:space-between; gap:8px; padding-top:8px}
+.prod-price{font-size:1.12rem; font-weight:800; color:var(--silver-100); font-variant-numeric:tabular-nums}
+.prod-add{display:grid;place-items:center;width:38px;height:38px;border-radius:11px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);color:var(--silver-200,#d7deef);transition:all .3s var(--ease-out)}
+.prod-add svg{width:18px;height:18px}
+.prod-card:hover{transform:translateY(-7px); border-color:rgba(134,171,246,.6); box-shadow:0 34px 64px -24px rgba(91,141,239,.5), var(--glass-hi)}
+.prod-card:hover .prod-media img{transform:scale(1.07)}
+.prod-card:hover .prod-add{background:var(--azure-400); border-color:var(--azure-300); color:var(--white); box-shadow:0 0 18px rgba(91,141,239,.7)}
+
+/* ============================================================
+   BRAND STRIP
+   ============================================================ */
+.brands{padding:clamp(48px,6vw,80px) 0}
+.brand-label{text-align:center; color:var(--silver-500); font-size:.92rem; font-weight:500; letter-spacing:.06em; margin-bottom:30px}
+.brand-track-mask{overflow:hidden; -webkit-mask-image:linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); mask-image:linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent)}
+.brand-track{display:flex; gap:56px; width:max-content; animation:marq 38s linear infinite; align-items:center}
+.brand-track span{font-family:'Rubik',sans-serif; font-size:1.35rem; font-weight:600; letter-spacing:.05em; color:var(--silver-500); opacity:.8; white-space:nowrap; transition:color .3s, opacity .3s; cursor:default}
+.brand-track span:hover{color:var(--white); opacity:1}
+@keyframes marq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+[dir="rtl"] .brand-track{animation-name:marq-rtl}
+@keyframes marq-rtl{from{transform:translateX(0)}to{transform:translateX(50%)}}
+
+/* ============================================================
+   VALUE PROPS — glass tiles
+   ============================================================ */
+.vp-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:18px}
+.vp-tile{
+  padding:28px 24px; border-radius:var(--r-md);
+  background:linear-gradient(160deg, rgba(255,255,255,.09), rgba(255,255,255,.02) 65%), rgba(14,24,56,.4);
+  -webkit-backdrop-filter:blur(16px); backdrop-filter:blur(16px);
+  border:1px solid var(--glass-border); box-shadow:var(--shadow-soft), var(--glass-hi);
+  transition:transform .4s var(--ease-out), border-color .4s var(--ease-out), box-shadow .4s var(--ease-out);
+}
+.vp-tile:hover{transform:translateY(-6px); border-color:rgba(134,171,246,.5); box-shadow:0 30px 56px -24px rgba(91,141,239,.4), var(--glass-hi)}
+.vp-ico{display:grid; place-items:center; width:54px;height:54px; border-radius:15px; margin-bottom:18px;
+  background:linear-gradient(150deg, rgba(91,141,239,.28), rgba(42,64,136,.18)); border:1px solid rgba(134,171,246,.35); color:var(--azure-300);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.2)}
+.vp-ico svg{width:26px;height:26px}
+.vp-tile h3{font-size:1.18rem; font-weight:800; color:var(--white); margin-bottom:9px}
+.vp-tile p{color:var(--silver-500); font-size:.96rem; font-weight:300}
+
+/* ============================================================
+   CTA BAND
+   ============================================================ */
+.cta-band{position:relative; overflow:hidden; padding:clamp(46px,6vw,72px) clamp(28px,5vw,72px); border-radius:32px; text-align:center;
+  background:linear-gradient(150deg, rgba(91,141,239,.14), rgba(255,255,255,.04) 50%), rgba(14,24,56,.55);
+  -webkit-backdrop-filter:blur(20px); backdrop-filter:blur(20px);
+  border:1px solid rgba(134,171,246,.32); box-shadow:0 40px 90px -30px rgba(91,141,239,.45), var(--glass-hi)}
+.cta-band::before{content:""; position:absolute; width:60%;height:160%; top:-30%; left:50%; transform:translateX(-50%);
+  background:radial-gradient(ellipse, rgba(91,141,239,.4), transparent 65%); filter:blur(40px); pointer-events:none}
+.cta-band > *{position:relative; z-index:1}
+.cta-band h2{font-size:clamp(1.9rem,3.6vw,2.9rem); font-weight:900; color:var(--white); letter-spacing:-.02em; line-height:1.1; margin-bottom:12px}
+.cta-band p{color:var(--silver-300); font-size:1.1rem; font-weight:300; margin-bottom:28px}
+
+/* ============================================================
+   NEWSLETTER
+   ============================================================ */
+.news{display:flex; align-items:center; justify-content:space-between; gap:32px; flex-wrap:wrap;
+  padding:clamp(30px,4vw,46px); border-radius:26px;
+  background:linear-gradient(160deg, rgba(255,255,255,.08), rgba(255,255,255,.02) 65%), rgba(10,18,48,.5);
+  -webkit-backdrop-filter:blur(18px); backdrop-filter:blur(18px);
+  border:1px solid var(--glass-border); box-shadow:var(--shadow-soft), var(--glass-hi)}
+.news-copy h3{font-size:1.5rem; font-weight:800; color:var(--white); margin-bottom:6px}
+.news-copy p{color:var(--silver-500); font-weight:300}
+.news-form{display:flex; gap:10px; flex:1; min-width:0; max-width:480px; flex-wrap:wrap}
+.news-form input{flex:1 1 180px; min-width:0; padding:14px 18px; border-radius:13px; font-family:inherit; font-size:1rem; color:var(--white);
+  background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.16); transition:all .25s var(--ease-out)}
+.news-form input::placeholder{color:var(--silver-700)}
+.news-form input:focus{outline:none; border-color:rgba(134,171,246,.6); box-shadow:0 0 0 3px rgba(91,141,239,.18); background:rgba(255,255,255,.08)}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer{margin-top:40px; padding-top:clamp(56px,7vw,84px); border-top:1px solid rgba(255,255,255,.08); position:relative}
+.foot-grid{display:grid; grid-template-columns:1.6fr 1fr 1fr 1fr 1fr; gap:36px; padding-bottom:46px}
+.foot-brand .logo{margin-bottom:16px}
+.foot-brand p{color:var(--silver-500); font-size:.94rem; font-weight:300; max-width:34ch; margin-bottom:18px}
+.foot-contact{display:flex; flex-direction:column; gap:10px}
+.foot-contact a, .foot-contact div{display:flex; align-items:center; gap:10px; color:var(--silver-300); text-decoration:none; font-size:.92rem; transition:color .2s}
+.foot-contact a:hover{color:var(--white)}
+.foot-contact svg{width:18px;height:18px;color:var(--azure-300);flex-shrink:0}
+.foot-col h4{font-size:.78rem; font-weight:800; letter-spacing:.14em; text-transform:uppercase; color:var(--silver-100); margin-bottom:16px}
+.foot-col ul{list-style:none; display:flex; flex-direction:column; gap:10px}
+.foot-col a{color:var(--silver-500); text-decoration:none; font-size:.93rem; transition:color .2s, padding .2s}
+.foot-col a:hover{color:var(--white)}
+.socials{display:flex; gap:10px}
+.socials a{display:grid;place-items:center;width:40px;height:40px;border-radius:11px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);color:var(--silver-300);transition:all .25s var(--ease-out)}
+.socials a:hover{color:var(--white);border-color:rgba(134,171,246,.5);box-shadow:0 0 0 3px rgba(91,141,239,.16)}
+.socials svg{width:19px;height:19px}
+.foot-bottom{display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; padding:22px 0 36px; border-top:1px solid rgba(255,255,255,.08); color:var(--silver-700); font-size:.84rem}
+.proto{display:inline-flex; align-items:center; gap:8px; padding:7px 13px; border-radius:999px; background:rgba(91,141,239,.10); border:1px solid rgba(91,141,239,.28); color:var(--azure-300); font-weight:600}
+
+/* ============================================================
+   SCROLLBAR
+   ============================================================ */
+::-webkit-scrollbar{width:11px;height:11px}
+::-webkit-scrollbar-track{background:var(--navy-950)}
+::-webkit-scrollbar-thumb{background:linear-gradient(var(--navy-500),var(--navy-700)); border-radius:10px; border:2px solid var(--navy-950)}
+::-webkit-scrollbar-thumb:hover{background:linear-gradient(var(--azure-400),var(--navy-500))}
+html{scrollbar-color:var(--navy-500) var(--navy-950); scrollbar-width:thin}
+
+:focus-visible{outline:2px solid var(--azure-300); outline-offset:3px; border-radius:6px}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width:1024px){
+  .cat-grid, .prod-grid, .vp-grid{grid-template-columns:repeat(2,1fr)}
+  .cat-card.wide{grid-column:span 2}
+  .foot-grid{grid-template-columns:1fr 1fr 1fr; }
+  .foot-brand{grid-column:1 / -1}
+  .nav-links{display:none}
+  .nav-toggle{display:grid}
+}
+@media (max-width:768px){
+  .news{flex-direction:column; align-items:stretch}
+  .news-form{max-width:none}
+}
+@media (max-width:560px){
+  .cat-grid, .prod-grid, .vp-grid{grid-template-columns:1fr}
+  .cat-card.wide{grid-column:span 1}
+  .foot-grid{grid-template-columns:1fr 1fr}
+  .hero{padding-top:128px}
+  .logo-word i{display:none}
+  .chip{font-size:.74rem; padding:7px 11px}
+  .chip.c1{right:0} .chip.c2{left:-2px} .chip.c4{left:0}
+  .nav{padding:9px 14px}
+  .foot-bottom{flex-direction:column; align-items:flex-start}
+}
+
+/* mobile menu (glass dropdown) */
+.mobile-menu{position:fixed; inset:0; z-index:99; display:none; opacity:0; transition:opacity .3s var(--ease-out)}
+.mobile-menu.open{display:block; opacity:1}
+.mobile-menu .mm-bg{position:absolute; inset:0; background:rgba(7,12,32,.72); -webkit-backdrop-filter:blur(14px); backdrop-filter:blur(14px)}
+.mobile-menu .mm-panel{position:absolute; top:84px; left:24px; right:24px; padding:14px;
+  background:linear-gradient(160deg, rgba(255,255,255,.10), rgba(255,255,255,.02) 70%), rgba(10,18,48,.85);
+  border:1px solid var(--glass-border); border-radius:22px; box-shadow:var(--shadow-soft), var(--glass-hi)}
+.mobile-menu a{display:block; color:var(--silver-200,#d7deef); text-decoration:none; font-size:1.05rem; font-weight:600; padding:13px 16px; border-radius:12px; transition:background .2s, color .2s}
+.mobile-menu a:hover{background:rgba(91,141,239,.16); color:var(--white)}
+
+/* ============================================================
+   REDUCED MOTION
+   ============================================================ */
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important; scroll-behavior:auto !important}
+  .blob{opacity:.5}
+  .reveal{opacity:1; transform:none}
+  .product-float{animation:none}
+}
+</style>
+</head>
+<body>
+
+<div class="bg-base"></div>
+<div class="aurora" aria-hidden="true">
+  <span class="blob b1"></span>
+  <span class="blob b2"></span>
+  <span class="blob b3"></span>
+  <span class="blob b4"></span>
+</div>
+<div class="grid-fx" aria-hidden="true"></div>
+
+<!-- ============ NAV ============ -->
+<div class="nav-shell">
+  <nav class="nav" id="nav" aria-label="ניווט ראשי">
+    <a class="logo" href="#top" aria-label="אלקטריק פלוס — לדף הבית">
+      <svg class="logo-mark" viewBox="0 0 200 200" width="40" height="40" role="img" aria-label="Electric Plus">
+        <g fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M125 50 H70 V150 H125"/>
+          <path d="M70 100 H118"/>
+          <path d="M125 150 V50 H162 A27 27 0 0 1 162 104 H125"/>
+        </g>
+      </svg>
+      <span class="logo-word">
+        <b>אלקטריק פלוס</b>
+        <i>מוצרי חשמל ואלקטרוניקה</i>
+      </span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="#top">בית</a></li>
+      <li><a href="#categories">מקררים</a></li>
+      <li><a href="#categories">תנורים וכיריים</a></li>
+      <li><a href="#categories">מדיחים</a></li>
+      <li><a href="#categories">כביסה</a></li>
+      <li><a href="#featured">טלוויזיה</a></li>
+      <li><a href="#categories">מיזוג אוויר</a></li>
+      <li><a href="#brands">מותגים</a></li>
+      <li><a href="#contact">צור קשר</a></li>
+    </ul>
+
+    <div class="nav-utils">
+      <button class="icon-btn" aria-label="חיפוש">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+      </button>
+      <button class="icon-btn" aria-label="התחברות">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
+      </button>
+      <button class="icon-btn" aria-label="עגלת קניות">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2 3h3l2.4 12.5a1.6 1.6 0 0 0 1.6 1.3h8.3a1.6 1.6 0 0 0 1.6-1.2L22 7H6"/></svg>
+      </button>
+      <button class="icon-btn nav-toggle" id="navToggle" aria-label="פתיחת תפריט" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+  </nav>
+</div>
+
+<!-- mobile menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mm-bg" data-close></div>
+  <div class="mm-panel">
+    <a href="#top" data-close>בית</a>
+    <a href="#categories" data-close>קטגוריות</a>
+    <a href="#featured" data-close>מוצרים נבחרים</a>
+    <a href="#brands" data-close>מותגים</a>
+    <a href="#values" data-close>למה אנחנו</a>
+    <a href="#contact" data-close>צור קשר</a>
+  </div>
+</div>
+
+<!-- ============ HERO ============ -->
+<header class="hero" id="top">
+  <div class="eyebrow"><span class="dot"></span> העתיד של מוצרי החשמל לבית</div>
+  <h1>הבית שלך, <span class="accent">ברמה אחרת</span></h1>
+  <p class="sub">מוצרי החשמל והאלקטרוניקה המובילים בעולם — אצלכם בבית, עם ייעוץ אישי, התקנה מקצועית ומשלוח עד הבית.</p>
+  <div class="hero-cta">
+    <a class="btn btn-primary" href="#categories">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+      לקטלוג המלא
+    </a>
+    <a class="btn btn-ghost" href="#contact">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      קבעו ייעוץ אישי
+    </a>
+  </div>
+
+  <!-- floating product stage with parallax layers -->
+  <div class="stage" id="stage">
+    <div class="stage-glow" data-depth="0.5"></div>
+
+    <div class="product-layer" data-depth="1">
+      <div class="product-float">
+        <img class="product-img" src="assets/ai/hero-glow.jpg" alt="מקרר יוקרה מרחף בתוך הילה כחולה זוהרת — אלקטריק פלוס" loading="eager" fetchpriority="high">
+      </div>
+    </div>
+
+    <div class="chip c1" data-depth="2.4"><span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="9"/></svg></span> No-Frost</div>
+    <div class="chip c2" data-depth="1.8"><span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m13 2-9 12h7l-1 8 9-12h-7z"/></svg></span> A+++</div>
+    <div class="chip c3" data-depth="2.1"><span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5a10 10 0 0 1 14 0M8.5 16a5 5 0 0 1 7 0"/><circle cx="12" cy="19" r="1"/></svg></span> WiFi</div>
+    <div class="chip c4" data-depth="1.5"><span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M7 8l5-5 5 5M7 16l5 5 5-5"/></svg></span> Inverter</div>
+  </div>
+
+  <div class="scroll-cue" aria-hidden="true"><span class="mouse"></span>גלילה</div>
+</header>
+
+<!-- ============ CATEGORIES ============ -->
+<section id="categories" class="wrap">
+  <div class="sec-head reveal">
+    <span class="sec-tag">קטגוריות</span>
+    <h2>כל עולם הבית החכם, במקום אחד</h2>
+    <p>מהמטבח ועד הסלון — מבחר עשיר של מוצרים מתקדמים מהמותגים המובילים בעולם.</p>
+  </div>
+  <div class="cat-grid">
+    <a class="cat-card wide reveal" href="#featured">
+      <div class="ph"><img src="assets/ai/hero-showroom.jpg" alt="מקרר נירוסטה משובץ במטבח יוקרה בגוון כחול לילה" loading="lazy"></div>
+      <div class="cc"><h3>מקררים</h3><span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></span></div>
+    </a>
+    <a class="cat-card reveal" href="#featured">
+      <div class="ph"><img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?q=80&auto=format&fit=crop&w=700" alt="תנור וכיריים בנויים במטבח מודרני" loading="lazy"></div>
+      <div class="cc"><h3>תנורים וכיריים</h3><span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></span></div>
+    </a>
+    <a class="cat-card reveal" href="#featured">
+      <div class="ph"><img src="https://images.unsplash.com/photo-1581622558663-b2e33377dfb2?q=80&auto=format&fit=crop&w=700" alt="מדיח כלים פתוח עם כלים לבנים" loading="lazy"></div>
+      <div class="cc"><h3>מדיחי כלים</h3><span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></span></div>
+    </a>
+    <a class="cat-card reveal" href="#featured">
+      <div class="ph"><img src="https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?q=80&auto=format&fit=crop&w=700" alt="מכונת כביסה לבנה בחדר הכביסה" loading="lazy"></div>
+      <div class="cc"><h3>מכונות כביסה</h3><span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></span></div>
+    </a>
+    <a class="cat-card reveal" href="#featured">
+      <div class="ph"><img src="assets/ai/cat-tv.jpg" alt="מסך טלוויזיה OLED בסלון" loading="lazy"></div>
+      <div class="cc"><h3>מסכי OLED ו-QLED</h3><span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></span></div>
+    </a>
+    <a class="cat-card reveal" href="#featured">
+      <div class="ph"><img src="assets/ai/cat-washer.jpg" alt="מוצרי חשמל קטנים למטבח" loading="lazy"></div>
+      <div class="cc"><h3>מוצרי חשמל קטנים</h3><span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></span></div>
+    </a>
+    <a class="cat-card reveal" href="#featured">
+      <div class="ph"><img src="assets/ai/cat-oven.jpg" alt="בישול על כיריים גז במטבח" loading="lazy"></div>
+      <div class="cc"><h3>בישול ואפייה</h3><span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></span></div>
+    </a>
+  </div>
+</section>
+
+<!-- ============ FEATURED ============ -->
+<section id="featured" class="wrap">
+  <div class="sec-head reveal">
+    <span class="sec-tag">נבחרת המוצרים</span>
+    <h2>מוצרים שמדברים בשפה של עיצוב</h2>
+    <p>דגמים נבחרים מהקולקציה — ביצועים, חיסכון באנרגיה וגימור יוקרתי.</p>
+  </div>
+  <div class="prod-grid">
+    <article class="prod-card reveal">
+      <div class="prod-media"><span class="tag">חדש</span><img src="assets/ai/cat-fridge.jpg" alt="מקרר No-Frost של Samsung" loading="lazy"></div>
+      <div class="prod-body">
+        <span class="prod-brand">Samsung</span>
+        <h3 class="prod-name">מקרר 4 דלתות No-Frost</h3>
+        <div class="prod-foot"><span class="prod-price">החל מ-₪9,990</span>
+          <span class="prod-add" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></span></div>
+      </div>
+    </article>
+    <article class="prod-card reveal">
+      <div class="prod-media"><span class="tag muted">פירוליטי</span><img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?q=80&auto=format&fit=crop&w=700" alt="תנור בנוי פירוליטי של Bosch במטבח מעוצב" loading="lazy"></div>
+      <div class="prod-body">
+        <span class="prod-brand">Bosch</span>
+        <h3 class="prod-name">תנור בנוי פירוליטי</h3>
+        <div class="prod-foot"><span class="prod-price">₪4,490</span>
+          <span class="prod-add" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></span></div>
+      </div>
+    </article>
+    <article class="prod-card reveal">
+      <div class="prod-media"><span class="tag">4K</span><img src="assets/ai/cat-tv.jpg" alt="מסך OLED 65 אינץ' 4K של LG" loading="lazy"></div>
+      <div class="prod-body">
+        <span class="prod-brand">LG</span>
+        <h3 class="prod-name">מסך OLED ″65 4K</h3>
+        <div class="prod-foot"><span class="prod-price">₪6,790</span>
+          <span class="prod-add" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></span></div>
+      </div>
+    </article>
+    <article class="prod-card reveal">
+      <div class="prod-media"><span class="tag muted">מבצע</span><img src="https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?q=80&auto=format&fit=crop&w=700" alt="מכונת כביסה 9 ק״ג של Miele" loading="lazy"></div>
+      <div class="prod-body">
+        <span class="prod-brand">Miele</span>
+        <h3 class="prod-name">מכונת כביסה 9 ק״ג</h3>
+        <div class="prod-foot"><span class="prod-price">₪7,200</span>
+          <span class="prod-add" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></span></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ============ BRAND STRIP ============ -->
+<section id="brands" class="brands wrap">
+  <p class="brand-label reveal">המותגים המובילים בעולם נמצאים אצלנו</p>
+  <div class="brand-track-mask reveal">
+    <div class="brand-track">
+      <span>BOSCH</span><span>SIEMENS</span><span>Miele</span><span>LIEBHERR</span><span>SUB-ZERO</span><span>GAGGENAU</span><span>AEG</span><span>SAMSUNG</span><span>LG</span><span>SONY</span><span>BOSE</span><span>De'Longhi</span>
+      <span>BOSCH</span><span>SIEMENS</span><span>Miele</span><span>LIEBHERR</span><span>SUB-ZERO</span><span>GAGGENAU</span><span>AEG</span><span>SAMSUNG</span><span>LG</span><span>SONY</span><span>BOSE</span><span>De'Longhi</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VALUE PROPS ============ -->
+<section id="values" class="wrap">
+  <div class="sec-head reveal">
+    <span class="sec-tag">למה אלקטריק פלוס</span>
+    <h2>חוויית רכישה ברמה של בוטיק</h2>
+    <p>לא רק מוצר — שירות מלא מהייעוץ הראשון ועד ההתקנה בבית.</p>
+  </div>
+  <div class="vp-grid">
+    <div class="vp-tile reveal">
+      <div class="vp-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 2.6 5.5 6 .9-4.3 4.3 1 6L12 16l-5.3 2.7 1-6L3.4 8.4l6-.9z"/></svg></div>
+      <h3>מותגי יוקרה בלעדיים</h3>
+      <p>בוש, מילה, סימנס, גאגנאו, סאב-זירו ועוד — תחת קורת גג אחת.</p>
+    </div>
+    <div class="vp-tile reveal">
+      <div class="vp-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 5.5a3.5 3.5 0 0 0-4.9 4.9L3 17v4h4l6.6-6.6a3.5 3.5 0 0 0 4.9-4.9l-2.5 2.5-2-2z"/></svg></div>
+      <h3>התקנה מקצועית</h3>
+      <p>צוות טכנאים מוסמך, התקנה מלאה ואחריות יצרן מקיפה.</p>
+    </div>
+    <div class="vp-tile reveal">
+      <div class="vp-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11a8 8 0 0 1 16 0v5a3 3 0 0 1-3 3h-1v-6h4M4 13v3a3 3 0 0 0 3 3h1v-6H4"/></svg></div>
+      <h3>ייעוץ אישי</h3>
+      <p>מומחי מוצר שיתאימו לכם בדיוק את הדגם הנכון לבית.</p>
+    </div>
+    <div class="vp-tile reveal">
+      <div class="vp-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7z"/><circle cx="7" cy="18" r="1.6"/><circle cx="17.5" cy="18" r="1.6"/></svg></div>
+      <h3>משלוח עד הבית</h3>
+      <p>בפריסה ארצית — מהיר, אמין ובתיאום מראש.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA BAND ============ -->
+<section class="wrap">
+  <div class="cta-band reveal">
+    <h2>מוכנים לשדרג את הבית?</h2>
+    <p>צוות המומחים שלנו כאן בשבילכם — נשמח לבנות לכם את הבית המושלם.</p>
+    <a class="btn btn-primary" href="#contact" style="margin:0 auto">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.4 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
+      דברו איתנו
+    </a>
+  </div>
+</section>
+
+<!-- ============ NEWSLETTER ============ -->
+<section id="contact" class="wrap">
+  <div class="news reveal">
+    <div class="news-copy">
+      <h3>הצטרפו וקבלו עדכונים ומבצעים</h3>
+      <p>חדשות מוצרים, השקות ומבצעים בלעדיים — ישירות למייל.</p>
+    </div>
+    <form class="news-form" onsubmit="return false">
+      <label for="nlEmail" class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">כתובת אימייל</label>
+      <input id="nlEmail" type="email" placeholder="כתובת אימייל" autocomplete="email">
+      <button class="btn btn-primary" type="submit">הרשמה</button>
+    </form>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="wrap footer">
+  <div class="foot-grid">
+    <div class="foot-brand">
+      <a class="logo" href="#top" aria-label="אלקטריק פלוס">
+        <svg class="logo-mark" viewBox="0 0 200 200" width="40" height="40" role="img" aria-label="Electric Plus">
+          <g fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M125 50 H70 V150 H125"/>
+            <path d="M70 100 H118"/>
+            <path d="M125 150 V50 H162 A27 27 0 0 1 162 104 H125"/>
+          </g>
+        </svg>
+        <span class="logo-word"><b>אלקטריק פלוס</b><i>מוצרי חשמל ואלקטרוניקה</i></span>
+      </a>
+      <p>הבית של מוצרי החשמל והאלקטרוניקה המובילים בעולם — יוקרה, טכנולוגיה ושירות אישי.</p>
+      <div class="foot-contact">
+        <a href="https://maps.google.com/?q=רחוב לחי 31 בני ברק" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          רחוב לח"י 31, בני ברק
+        </a>
+        <a href="tel:039559090">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.4 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
+          03-9559090
+        </a>
+        <div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          א׳–ה׳ 9:30–20:00 · ו׳/ערבי חג 9:30–13:30
+        </div>
+      </div>
+    </div>
+
+    <div class="foot-col">
+      <h4>קטגוריות</h4>
+      <ul>
+        <li><a href="#categories">מקררים</a></li>
+        <li><a href="#categories">תנורים וכיריים</a></li>
+        <li><a href="#categories">מדיחי כלים</a></li>
+        <li><a href="#categories">מכונות כביסה</a></li>
+        <li><a href="#featured">מסכי OLED ו-QLED</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h4>שירות לקוחות</h4>
+      <ul>
+        <li><a href="#contact">צור קשר</a></li>
+        <li><a href="#values">התקנה ואחריות</a></li>
+        <li><a href="#contact">מעקב הזמנה</a></li>
+        <li><a href="#contact">ייעוץ אישי</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h4>אודות</h4>
+      <ul>
+        <li><a href="#top">הסיפור שלנו</a></li>
+        <li><a href="#brands">המותגים שלנו</a></li>
+        <li><a href="#values">למה אנחנו</a></li>
+        <li><a href="#contact">סניפים</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h4>עקבו אחרינו</h4>
+      <div class="socials">
+        <a href="#" aria-label="פייסבוק"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v2H7v3h3v6h3v-6h3l1-3h-4v-2c0-.6.4-1 1-1z"/></svg></a>
+        <a href="#" aria-label="אינסטגרם"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+        <a href="#" aria-label="יוטיוב"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="m10 9 5 3-5 3z" fill="currentColor"/></svg></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="foot-bottom">
+    <span>© 2026 אלקטריק פלוס · כל הזכויות שמורות</span>
+    <span class="proto">
+      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m13 2-9 12h7l-1 8 9-12h-7z"/></svg>
+      אב-טיפוס לבחינה · Electric Plus
+    </span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* nav scrolled state */
+  var nav = document.getElementById('nav');
+  function onScroll(){ if(window.scrollY > 30) nav.classList.add('scrolled'); else nav.classList.remove('scrolled'); }
+  window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+  /* mobile menu */
+  var toggle = document.getElementById('navToggle');
+  var menu = document.getElementById('mobileMenu');
+  function closeMenu(){ menu.classList.remove('open'); toggle.setAttribute('aria-expanded','false'); }
+  toggle.addEventListener('click', function(){
+    var open = menu.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open ? 'true':'false');
+  });
+  menu.querySelectorAll('[data-close]').forEach(function(el){ el.addEventListener('click', closeMenu); });
+
+  /* reveal on scroll */
+  var revs = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window && !reduce){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          var sibs = Array.prototype.slice.call(e.target.parentNode.children).filter(function(c){return c.classList.contains('reveal');});
+          var i = sibs.indexOf(e.target);
+          e.target.style.transitionDelay = (Math.max(0,i)*70)+'ms';
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+      });
+    }, {threshold:0.12, rootMargin:'0px 0px -8% 0px'});
+    revs.forEach(function(el){ io.observe(el); });
+  } else {
+    revs.forEach(function(el){ el.classList.add('in'); });
+  }
+
+  /* parallax — mouse + scroll on hero layers */
+  if(!reduce){
+    var layers = Array.prototype.slice.call(document.querySelectorAll('[data-depth]'));
+    var hero = document.getElementById('top');
+    var mx=0, my=0, tmx=0, tmy=0, sy=0, raf=null;
+
+    function apply(){
+      mx += (tmx-mx)*0.08;
+      my += (tmy-my)*0.08;
+      layers.forEach(function(el){
+        var d = parseFloat(el.getAttribute('data-depth'))||1;
+        var px = mx * d * 16;
+        var py = my * d * 16 + sy * d * 0.10;
+        el.style.transform = 'translate3d('+px.toFixed(2)+'px,'+py.toFixed(2)+'px,0)';
+      });
+      raf = null;
+      if(Math.abs(tmx-mx)>0.001 || Math.abs(tmy-my)>0.001) schedule();
+    }
+    function schedule(){ if(!raf) raf = requestAnimationFrame(apply); }
+
+    window.addEventListener('mousemove', function(e){
+      tmx = (e.clientX/window.innerWidth - 0.5)*2;
+      tmy = (e.clientY/window.innerHeight - 0.5)*2;
+      schedule();
+    }, {passive:true});
+
+    window.addEventListener('scroll', function(){
+      var r = hero.getBoundingClientRect();
+      if(r.bottom > 0){ sy = window.scrollY; schedule(); }
+    }, {passive:true});
+  }
+})();
+</script>
+</body>
+</html>

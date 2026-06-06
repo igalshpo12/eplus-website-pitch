@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="Electric Plus">
+  <g fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+    <!-- E -->
+    <path d="M125 50 H70 V150 H125" />
+    <path d="M70 100 H118" />
+    <!-- P interlocked on shared central stem at x=125 -->
+    <path d="M125 150 V50 H162 A27 27 0 0 1 162 104 H125" />
+  </g>
+</svg>
