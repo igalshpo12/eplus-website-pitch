@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>אלקטריק פלוס · החנות לבית מושלם</title>
+<meta name="description" content="אלקטריק פלוס — מותגי החשמל והאלקטרוניקה המובילים בעולם. מקררים, תנורים, מדיחים, מכונות כביסה ומסכי טלוויזיה, עם ייעוץ אישי והתקנה מקצועית.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Assistant:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy-950:#070C20; --navy-900:#0A1230; --navy-800:#101A40; --navy-700:#16224F;
+  --navy-600:#1E2F66; --navy-500:#2A4088;
+  --azure-400:#5B8DEF; --azure-300:#86ABF6;
+  --silver-700:#7E8AA6; --silver-500:#AAB6CE; --silver-300:#C8D2E6; --silver-100:#E9EEFA;
+  --white:#FFFFFF; --paper:#FAFBFD; --ink:#0C1230;
+  --rule:#E7EBF3; --rule-strong:#D2D9E8; --muted:#586385;
+  --sans:"Heebo", system-ui, sans-serif;
+  --body:"Assistant","Heebo",system-ui,sans-serif;
+  --maxw:1340px; --gutter:clamp(16px,4vw,52px);
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--body);background:var(--white);color:var(--ink);line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+ul{list-style:none}
+::selection{background:var(--navy-800);color:#fff}
+::-webkit-scrollbar{width:10px;height:10px}
+::-webkit-scrollbar-track{background:var(--paper)}
+::-webkit-scrollbar-thumb{background:var(--silver-300);border-radius:20px;border:3px solid var(--paper)}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--azure-400);outline-offset:3px;border-radius:4px}
+.wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:var(--gutter)}
+
+/* ===== TOP BAR (announcement) ===== */
+.topbar{background:var(--navy-900);color:var(--silver-300);font-size:.82rem;font-weight:600;text-align:center;padding:.5rem 1rem;letter-spacing:.01em}
+.topbar b{color:#fff}
+
+/* ===== LOGO ===== */
+.logo{display:inline-flex;align-items:center;gap:.6rem;color:var(--navy-800)}
+.logo-word{display:flex;flex-direction:column;line-height:1.04}
+.logo-word b{font-family:var(--sans);font-weight:800;font-size:1.14rem;letter-spacing:-.01em}
+.logo-word i{font-style:normal;font-weight:600;font-size:.54rem;letter-spacing:.2em;color:var(--silver-700);margin-top:2px}
+
+/* ===== NAV ===== */
+.nav{position:sticky;top:0;z-index:70;background:rgba(255,255,255,.9);backdrop-filter:blur(16px) saturate(1.3);-webkit-backdrop-filter:blur(16px) saturate(1.3);border-bottom:1px solid var(--rule)}
+.nav-inner{display:flex;align-items:center;gap:1.4rem;height:72px}
+.nav-links{display:flex;align-items:center;gap:clamp(.5rem,1.2vw,1.4rem);margin-inline-start:1rem}
+.nav-links a{font-family:var(--sans);font-size:.9rem;font-weight:600;color:var(--ink);position:relative;padding:.3rem 0;white-space:nowrap;transition:color .25s var(--ease)}
+.nav-links a:hover{color:var(--navy-600)}
+.search{flex:1;max-width:430px;margin-inline:auto;position:relative;display:flex;align-items:center}
+.search svg{position:absolute;inset-inline-start:14px;width:18px;height:18px;color:var(--silver-700);pointer-events:none}
+.search input{width:100%;background:var(--paper);border:1px solid var(--rule);border-radius:10px;padding:.62rem 2.7rem .62rem 1rem;font-family:var(--body);font-size:.92rem;color:var(--ink);transition:border-color .3s var(--ease),box-shadow .3s var(--ease),background .3s}
+.search input::placeholder{color:var(--silver-700)}
+.search input:focus{outline:none;border-color:var(--navy-600);background:#fff;box-shadow:0 0 0 3px rgba(91,141,239,.16)}
+.nav-actions{display:flex;align-items:center;gap:.35rem}
+.icon-btn{width:42px;height:42px;border-radius:11px;display:grid;place-items:center;color:var(--ink);position:relative;transition:background .25s var(--ease),color .25s var(--ease)}
+.icon-btn:hover{background:var(--silver-100);color:var(--navy-600)}
+.icon-btn svg{width:21px;height:21px}
+.icon-btn .badge{position:absolute;top:6px;inset-inline-end:6px;min-width:16px;height:16px;padding:0 4px;border-radius:9px;background:var(--azure-400);color:#fff;font-size:.62rem;font-weight:800;display:grid;place-items:center;font-family:var(--sans)}
+.nav-cta{margin-inline-start:.4rem;font-family:var(--sans);font-weight:700;font-size:.88rem;padding:.6rem 1.2rem;background:var(--navy-800);color:#fff;border-radius:10px;white-space:nowrap;transition:background .3s var(--ease),transform .3s var(--ease)}
+.nav-cta:hover{background:var(--navy-600);transform:translateY(-1px)}
+.burger{display:none}
+
+/* ===== CHIPS (sticky category bar) ===== */
+.chips{position:sticky;top:72px;z-index:60;background:rgba(255,255,255,.94);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--rule)}
+.chips-inner{display:flex;align-items:center;gap:.55rem;overflow-x:auto;scrollbar-width:none;padding-block:.7rem}
+.chips-inner::-webkit-scrollbar{display:none}
+.chip{font-family:var(--sans);font-weight:600;font-size:.88rem;color:var(--navy-700);white-space:nowrap;padding:.5rem 1.05rem;border:1px solid var(--rule-strong);border-radius:999px;background:#fff;transition:background .25s var(--ease),color .25s var(--ease),border-color .25s var(--ease)}
+.chip:hover{border-color:var(--navy-600);color:var(--navy-800)}
+.chip.active{background:var(--navy-800);color:#fff;border-color:var(--navy-800)}
+
+/* ===== BUTTONS ===== */
+.btn{display:inline-flex;align-items:center;gap:.55rem;font-family:var(--sans);font-weight:700;font-size:1rem;padding:.92rem 1.7rem;border-radius:11px;transition:transform .3s var(--ease),background .3s var(--ease),color .3s var(--ease),box-shadow .3s var(--ease)}
+.btn svg{width:18px;height:18px}
+.btn-primary{background:var(--navy-800);color:#fff;box-shadow:0 16px 36px -20px rgba(16,26,64,.8)}
+.btn-primary:hover{background:var(--navy-600);transform:translateY(-2px)}
+.btn-light{background:#fff;color:var(--navy-900)}
+.btn-light:hover{background:var(--silver-100);transform:translateY(-2px)}
+.btn-ghost-light{border:1.5px solid rgba(255,255,255,.45);color:#fff}
+.btn-ghost-light:hover{border-color:#fff;background:rgba(255,255,255,.1);transform:translateY(-2px)}
+.btn-ghost{border:1.5px solid var(--rule-strong);color:var(--ink)}
+.btn-ghost:hover{border-color:var(--navy-800);background:var(--paper);transform:translateY(-2px)}
+
+/* ===== REVEAL ===== */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+.reveal[data-d="1"]{transition-delay:.07s}.reveal[data-d="2"]{transition-delay:.14s}.reveal[data-d="3"]{transition-delay:.21s}.reveal[data-d="4"]{transition-delay:.28s}
+
+/* ===== HERO (full-bleed) ===== */
+.hero{position:relative;height:clamp(460px,72vh,680px);overflow:hidden}
+.hero-img{position:absolute;inset:0}
+.hero-img img{width:100%;height:100%;object-fit:cover;transform:scale(1.05)}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to right, rgba(7,12,32,0) 42%, rgba(7,12,32,.72) 100%),linear-gradient(to top, rgba(7,12,32,.35), transparent 40%)}
+.hero-inner{position:relative;z-index:2;height:100%;display:flex;align-items:center}
+.hero-copy{max-width:560px;color:#fff}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:.6rem;font-family:var(--sans);font-weight:700;font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:var(--azure-300);margin-bottom:1.1rem}
+.hero-eyebrow::before{content:"";width:28px;height:2px;background:var(--azure-300)}
+.hero h1{font-family:var(--sans);font-weight:900;font-size:clamp(2.4rem,5.4vw,4.4rem);line-height:1.02;letter-spacing:-.025em}
+.hero h1 .accent{color:var(--azure-300)}
+.hero p{font-size:clamp(1.04rem,1.5vw,1.22rem);color:var(--silver-300);margin-top:1.2rem;max-width:42ch}
+.hero-cta{display:flex;gap:.8rem;margin-top:1.9rem;flex-wrap:wrap}
+
+/* ===== TRUST STRIP ===== */
+.trust{border-bottom:1px solid var(--rule);background:var(--paper)}
+.trust-grid{display:grid;grid-template-columns:repeat(4,1fr)}
+.trust-item{display:flex;align-items:center;gap:.8rem;padding:clamp(16px,2vw,24px) clamp(14px,1.8vw,26px);border-inline-start:1px solid var(--rule)}
+.trust-item:first-child{border-inline-start:none}
+.trust-item .ti{width:40px;height:40px;border-radius:11px;background:#fff;border:1px solid var(--rule);display:grid;place-items:center;color:var(--navy-600);flex:0 0 auto}
+.trust-item .ti svg{width:20px;height:20px}
+.trust-item b{display:block;font-family:var(--sans);font-weight:700;font-size:.95rem;color:var(--ink)}
+.trust-item span{font-size:.82rem;color:var(--muted)}
+
+/* ===== SECTION ===== */
+.section{padding-block:clamp(48px,6.5vw,96px)}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;margin-bottom:clamp(26px,3.5vw,44px)}
+.sec-head h2{font-family:var(--sans);font-weight:800;font-size:clamp(1.7rem,3.6vw,2.7rem);line-height:1.1;letter-spacing:-.02em;color:var(--ink)}
+.sec-head p{color:var(--muted);font-size:1rem;margin-top:.4rem}
+.sec-link{font-family:var(--sans);font-weight:700;font-size:.92rem;color:var(--navy-700);display:inline-flex;align-items:center;gap:.45rem;transition:gap .3s var(--ease),color .3s var(--ease)}
+.sec-link svg{width:17px;height:17px;transition:transform .3s var(--ease)}
+.sec-link:hover{gap:.8rem;color:var(--navy-500)}
+.sec-link:hover svg{transform:translateX(-5px)}
+
+/* ===== PRODUCT GRID ===== */
+.prod-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(12px,1.6vw,22px)}
+.card{position:relative;background:#fff;border:1px solid var(--rule);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;transition:transform .4s var(--ease),box-shadow .4s var(--ease),border-color .4s var(--ease)}
+.card:hover{transform:translateY(-6px);box-shadow:0 30px 60px -38px rgba(12,18,48,.42);border-color:var(--rule-strong)}
+.card-img{position:relative;aspect-ratio:1/1;overflow:hidden;background:#fff}
+.card-img img{width:100%;height:100%;object-fit:contain;padding:11%;transition:transform .7s var(--ease)}
+.card:hover .card-img img{transform:scale(1.05)}
+.card-badge{position:absolute;top:11px;inset-inline-start:11px;font-family:var(--sans);font-size:.7rem;font-weight:700;letter-spacing:.03em;background:var(--navy-800);color:#fff;padding:.3rem .66rem;border-radius:7px}
+.card-badge.sale{background:var(--azure-400)}
+.card-fav{position:absolute;top:9px;inset-inline-end:9px;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.86);display:grid;place-items:center;color:var(--silver-700);opacity:0;transform:translateY(-4px);transition:opacity .3s var(--ease),transform .3s var(--ease),color .25s}
+.card:hover .card-fav{opacity:1;transform:none}
+.card-fav:hover{color:var(--azure-400)}
+.card-fav svg{width:17px;height:17px}
+.card-body{padding:.95rem 1.05rem 1.1rem;display:flex;flex-direction:column;flex:1;border-top:1px solid var(--rule)}
+.card-brand{font-family:var(--sans);font-size:.72rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--silver-700)}
+.card-name{font-family:var(--sans);font-weight:600;font-size:1.02rem;color:var(--ink);margin:.3rem 0 .8rem;line-height:1.3;min-height:2.5em}
+.card-foot{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:.5rem}
+.card-price{font-family:var(--sans);font-weight:800;font-size:1.1rem;color:var(--navy-800);font-variant-numeric:tabular-nums}
+.card-price s{font-weight:600;font-size:.8rem;color:var(--silver-700);margin-inline-start:.35rem}
+.card-add{display:inline-flex;align-items:center;gap:.4rem;font-family:var(--sans);font-weight:700;font-size:.82rem;color:#fff;background:var(--navy-800);padding:.5rem .8rem;border-radius:9px;transition:background .25s var(--ease),transform .25s var(--ease)}
+.card-add:hover{background:var(--navy-600);transform:translateY(-1px)}
+.card-add svg{width:15px;height:15px}
+
+/* ===== CATEGORY TILES ===== */
+.cats{background:var(--paper);border-block:1px solid var(--rule)}
+.cat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,1.8vw,24px)}
+.ctile{position:relative;border-radius:18px;overflow:hidden;aspect-ratio:4/3;display:block;box-shadow:0 20px 44px -34px rgba(12,18,48,.4)}
+.ctile img{width:100%;height:100%;object-fit:cover;transition:transform .9s var(--ease)}
+.ctile:hover img{transform:scale(1.06)}
+.ctile::after{content:"";position:absolute;inset:0;background:linear-gradient(to top, rgba(7,12,32,.78), rgba(7,12,32,.06) 55%)}
+.ctile-cap{position:absolute;inset-inline:0;bottom:0;z-index:2;padding:1.3rem 1.4rem;color:#fff;display:flex;align-items:flex-end;justify-content:space-between;gap:.6rem}
+.ctile-cap b{font-family:var(--sans);font-weight:800;font-size:clamp(1.15rem,2vw,1.55rem);letter-spacing:-.01em}
+.ctile-cap span{font-size:.85rem;color:var(--silver-300)}
+.ctile-go{width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.16);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.3);display:grid;place-items:center;color:#fff;flex:0 0 auto;transition:background .3s var(--ease)}
+.ctile:hover .ctile-go{background:rgba(255,255,255,.3)}
+.ctile-go svg{width:18px;height:18px}
+
+/* ===== CONSULT (light split) ===== */
+.consult-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,60px);align-items:center}
+.consult-media{border-radius:18px;overflow:hidden;aspect-ratio:5/4;box-shadow:0 36px 70px -44px rgba(12,18,48,.45)}
+.consult-media img{width:100%;height:100%;object-fit:cover}
+.consult-copy h2{font-family:var(--sans);font-weight:800;font-size:clamp(1.8rem,3.6vw,2.8rem);line-height:1.1;letter-spacing:-.02em;color:var(--ink);margin-bottom:1rem}
+.consult-copy p{color:var(--muted);font-size:1.06rem;max-width:44ch;margin-bottom:1.7rem}
+.consult-list{display:flex;flex-direction:column;gap:.7rem;margin-bottom:1.8rem}
+.consult-list li{display:flex;align-items:center;gap:.7rem;font-size:1rem;color:var(--ink);font-weight:600}
+.consult-list .ck{width:26px;height:26px;border-radius:50%;background:var(--silver-100);display:grid;place-items:center;color:var(--navy-600);flex:0 0 auto}
+.consult-list .ck svg{width:15px;height:15px}
+
+/* ===== BRANDS ===== */
+.brands{padding-block:clamp(40px,5vw,72px);text-align:center;border-top:1px solid var(--rule)}
+.brands-label{font-family:var(--sans);font-weight:600;font-size:clamp(1rem,1.8vw,1.3rem);color:var(--muted);margin-bottom:clamp(22px,3vw,38px)}
+.brands-row{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:clamp(1.1rem,3.2vw,3rem)}
+.brands-row span{font-family:var(--sans);font-weight:800;font-size:clamp(1rem,1.7vw,1.45rem);letter-spacing:.05em;color:var(--navy-800);opacity:.48;transition:opacity .3s var(--ease),transform .3s var(--ease)}
+.brands-row span:hover{opacity:1;transform:translateY(-2px)}
+
+/* ===== FOOTER ===== */
+.footer{background:var(--paper);border-top:1px solid var(--rule);padding-top:clamp(48px,6vw,80px);color:var(--ink)}
+.foot-top{display:grid;grid-template-columns:1.6fr repeat(4,1fr);gap:clamp(22px,3vw,44px);padding-bottom:clamp(36px,4.5vw,58px)}
+.foot-brand p{color:var(--muted);font-size:.93rem;margin-top:1rem;max-width:32ch}
+.foot-contact{margin-top:1.3rem;font-size:.9rem;color:var(--ink);line-height:1.9}
+.foot-contact .row{display:flex;align-items:center;gap:.55rem}
+.foot-contact svg{width:16px;height:16px;color:var(--navy-600);flex:0 0 auto}
+.foot-col h4{font-family:var(--sans);font-size:.76rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--navy-700);margin-bottom:1rem}
+.foot-col a{display:block;color:var(--muted);font-size:.92rem;padding:.28rem 0;transition:color .25s var(--ease),padding-inline-start .25s var(--ease)}
+.foot-col a:hover{color:var(--navy-800);padding-inline-start:.3rem}
+.foot-social{display:flex;gap:.5rem;margin-top:.2rem}
+.foot-social a{width:40px;height:40px;border-radius:11px;border:1px solid var(--rule-strong);display:grid;place-items:center;color:var(--navy-700);transition:background .3s var(--ease),color .3s var(--ease),border-color .3s var(--ease)}
+.foot-social a:hover{background:var(--navy-800);color:#fff;border-color:var(--navy-800)}
+.foot-social svg{width:18px;height:18px}
+.foot-bottom{border-top:1px solid var(--rule);padding-block:1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;font-size:.84rem;color:var(--silver-700)}
+.foot-bottom .proto{font-family:var(--sans);font-weight:700;color:var(--navy-700)}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width:1024px){
+  .nav-links,.search{display:none}
+  .burger{display:grid}
+  .search-m{display:flex;flex:1}
+  .trust-grid{grid-template-columns:1fr 1fr}
+  .trust-item:nth-child(1),.trust-item:nth-child(2){border-bottom:1px solid var(--rule)}
+  .trust-item:nth-child(3){border-inline-start:none}
+  .prod-grid{grid-template-columns:repeat(3,1fr)}
+  .cat-grid{grid-template-columns:1fr 1fr}
+  .consult-grid{grid-template-columns:1fr;gap:28px}
+  .consult-media{order:-1;max-width:560px}
+  .foot-top{grid-template-columns:1fr 1fr 1fr}
+  .foot-brand{grid-column:1/-1}
+}
+@media (max-width:680px){
+  .nav-inner{height:64px}
+  .chips{top:64px}
+  .prod-grid{grid-template-columns:1fr 1fr}
+  .cat-grid{grid-template-columns:1fr}
+  .trust-grid{grid-template-columns:1fr}
+  .trust-item{border-inline-start:none;border-bottom:1px solid var(--rule)}
+  .trust-item:last-child{border-bottom:none}
+  .sec-head{align-items:flex-start;flex-direction:column;gap:.5rem}
+  .card-name{min-height:auto}
+  .foot-top{grid-template-columns:1fr 1fr}
+}
+@media (max-width:400px){ .prod-grid{grid-template-columns:1fr} .logo-word i{display:none} }
+@media (prefers-reduced-motion: reduce){
+  *{transition-duration:.001ms !important;scroll-behavior:auto !important}
+  .reveal{opacity:1 !important;transform:none !important}
+  .hero-img img{transform:scale(1.02) !important}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">משלוח והתקנה בפריסה ארצית · <b>ייעוץ אישי חינם</b> מצוות המומחים · טל׳ 03-9559090</div>
+
+<!-- ===== NAV ===== -->
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a href="#top" class="logo" aria-label="אלקטריק פלוס — דף הבית">
+      <svg viewBox="0 0 200 200" width="36" height="36" role="img" aria-label="Electric Plus">
+        <g fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M125 50 H70 V150 H125"/><path d="M70 100 H118"/><path d="M125 150 V50 H162 A27 27 0 0 1 162 104 H125"/>
+        </g>
+      </svg>
+      <span class="logo-word"><b>אלקטריק פלוס</b><i>מוצרי חשמל ואלקטרוניקה</i></span>
+    </a>
+    <nav class="nav-links" aria-label="ניווט ראשי">
+      <a href="#products">מוצרים</a><a href="#categories">קטגוריות</a><a href="#brands">מותגים</a><a href="#consult">ייעוץ</a>
+    </nav>
+    <div class="search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+      <input type="search" placeholder="חיפוש מוצר, מותג או דגם…" aria-label="חיפוש">
+    </div>
+    <div class="nav-actions">
+      <button class="icon-btn" aria-label="מועדפים"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.5-9.5-9A5.5 5.5 0 0 1 12 6a5.5 5.5 0 0 1 9.5 6c-2.5 4.5-9.5 9-9.5 9z"/></svg></button>
+      <button class="icon-btn" aria-label="עגלת קניות"><span class="badge">2</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6h15l-1.5 9h-12z"/><path d="M6 6L5 3H2"/><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/></svg></button>
+      <a href="#consult" class="nav-cta">ייעוץ אישי</a>
+      <button class="icon-btn burger" id="burger" aria-label="תפריט" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<!-- ===== STICKY CATEGORY CHIPS ===== -->
+<div class="chips" aria-label="קטגוריות">
+  <div class="wrap chips-inner">
+    <a href="#products" class="chip active">הכל</a>
+    <a href="#products" class="chip">מקררים</a>
+    <a href="#products" class="chip">תנורים</a>
+    <a href="#products" class="chip">כיריים</a>
+    <a href="#products" class="chip">מדיחי כלים</a>
+    <a href="#products" class="chip">מכונות כביסה</a>
+    <a href="#products" class="chip">מסכי טלוויזיה</a>
+    <a href="#products" class="chip">מיזוג אוויר</a>
+    <a href="#products" class="chip">מוצרים בנויים</a>
+  </div>
+</div>
+
+<main id="top">
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="hero-img"><img src="assets/catalog/kitchen-hero.jpg" alt="מטבח יוקרה מעוצב עם מוצרי חשמל משולבים — אלקטריק פלוס"></div>
+    <div class="wrap hero-inner">
+      <div class="hero-copy reveal in">
+        <span class="hero-eyebrow">אלקטריק פלוס · 2026</span>
+        <h1>הבית שלך,<br><span class="accent">ברמה אחרת.</span></h1>
+        <p>מותגי החשמל המובילים בעולם — במחירים משתלמים, עם ייעוץ אישי, התקנה מקצועית ושירות שלא מתפשר.</p>
+        <div class="hero-cta">
+          <a href="#products" class="btn btn-light">קנו עכשיו
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M11 6l-6 6 6 6"/></svg>
+          </a>
+          <a href="#consult" class="btn btn-ghost-light">קבעו ייעוץ אישי</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TRUST STRIP ===== -->
+  <section class="trust" aria-label="היתרונות שלנו">
+    <div class="wrap trust-grid">
+      <div class="trust-item"><div class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M1 8h13v9H1z"/><path d="M14 11h4l3 3v3h-7z"/><circle cx="6" cy="19" r="1.6"/><circle cx="17" cy="19" r="1.6"/></svg></div><div><b>משלוח עד הבית</b><span>בפריסה ארצית</span></div></div>
+      <div class="trust-item"><div class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V8l9-5 9 5v13"/><path d="M9 21v-6h6v6"/></svg></div><div><b>התקנה מקצועית</b><span>טכנאים מוסמכים</span></div></div>
+      <div class="trust-item"><div class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg></div><div><b>אחריות מלאה</b><span>על כל מוצר</span></div></div>
+      <div class="trust-item"><div class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H8l-4 4V5a2 2 0 0 1 2-2h13a2 2 0 0 1 2 2z"/></svg></div><div><b>ייעוץ אישי</b><span>מומחי מוצר זמינים</span></div></div>
+    </div>
+  </section>
+
+  <!-- ===== PRODUCTS ===== -->
+  <section class="section" id="products">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div>
+          <h2>הנמכרים ביותר</h2>
+          <p>פריטים מובחרים מהקטלוג — מחירים מעודכנים וזמינות מיידית.</p>
+        </div>
+        <a href="#" class="sec-link">לכל המוצרים
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M11 6l-6 6 6 6"/></svg>
+        </a>
+      </div>
+
+      <div class="prod-grid">
+        <!-- 1 -->
+        <article class="card reveal">
+          <div class="card-img"><span class="card-badge">חדש</span><button class="card-fav" aria-label="הוספה למועדפים"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.5-9.5-9A5.5 5.5 0 0 1 12 6a5.5 5.5 0 0 1 9.5 6c-2.5 4.5-9.5 9-9.5 9z"/></svg></button><img src="assets/catalog/fridge-samsung.jpg" alt="מקרר 4 דלתות No-Frost של Samsung"></div>
+          <div class="card-body"><span class="card-brand">Samsung</span><h3 class="card-name">מקרר 4 דלתות No-Frost</h3>
+            <div class="card-foot"><span class="card-price">₪9,990</span><a href="#" class="card-add"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>הוספה</a></div>
+          </div>
+        </article>
+        <!-- 2 -->
+        <article class="card reveal" data-d="1">
+          <div class="card-img"><button class="card-fav" aria-label="הוספה למועדפים"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.5-9.5-9A5.5 5.5 0 0 1 12 6a5.5 5.5 0 0 1 9.5 6c-2.5 4.5-9.5 9-9.5 9z"/></svg></button><img src="assets/catalog/oven-siemens.jpg" alt="תנור בנוי עם מסך מגע של Siemens"></div>
+          <div class="card-body"><span class="card-brand">Siemens</span><h3 class="card-name">תנור בנוי עם מסך מגע</h3>
+            <div class="card-foot"><span class="card-price">₪4,490</span><a href="#" class="card-add"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>הוספה</a></div>
+          </div>
+        </article>
+        <!-- 3 -->
+        <article class="card reveal" data-d="2">
+          <div class="card-img"><span class="card-badge sale">מבצע</span><button class="card-fav" aria-label="הוספה למועדפים"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.5-9.5-9A5.5 5.5 0 0 1 12 6a5.5 5.5 0 0 1 9.5 6c-2.5 4.5-9.5 9-9.5 9z"/></svg></button><img src="assets/catalog/dishwasher-miele.jpg" alt="מדיח כלים בנוי של Miele"></div>
+          <div class="card-body"><span class="card-brand">Miele</span><h3 class="card-name">מדיח כלים בנוי 60 ס״מ</h3>
+            <div class="card-foot"><span class="card-price">₪5,490 <s>₪6,290</s></span><a href="#" class="card-add"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>הוספה</a></div>
+          </div>
+        </article>
+        <!-- 4 -->
+        <article class="card reveal" data-d="3">
+          <div class="card-img"><button class="card-fav" aria-label="הוספה למועדפים"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.5-9.5-9A5.5 5.5 0 0 1 12 6a5.5 5.5 0 0 1 9.5 6c-2.5 4.5-9.5 9-9.5 9z"/></svg></button><img src="assets/catalog/washer-bosch.jpg" alt="מכונת כביסה 9 ק״ג של Bosch"></div>
+          <div class="card-body"><span class="card-brand">Bosch</span><h3 class="card-name">מכונת כביסה Serie 6, ‎9 ק״ג</h3>
+            <div class="card-foot"><span class="card-price">₪3,290</span><a href="#" class="card-add"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>הוספה</a></div>
+          </div>
+        </article>
+        <!-- 5 -->
+        <article class="card reveal">
+          <div class="card-img"><button class="card-fav" aria-label="הוספה למועדפים"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.5-9.5-9A5.5 5.5 0 0 1 12 6a5.5 5.5 0 0 1 9.5 6c-2.5 4.5-9.5 9-9.5 9z"/></svg></button><img src="assets/catalog/cooktop-siemens.jpg" alt="כיריים אינדוקציה של Siemens"></div>
+          <div class="card-body"><span class="card-brand">Siemens</span><h3 class="card-name">כיריים אינדוקציה 80 ס״מ</h3>
+            <div class="card-foot"><span class="card-price">₪3,890</span><a href="#" class="card-add"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>הוספה</a></div>
+          </div>
+        </article>
+        <!-- 6 -->
+        <article class="card reveal" data-d="1">
+          <div class="card-img"><span class="card-badge">פרימיום</span><button class="card-fav" aria-label="הוספה למועדפים"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.5-9.5-9A5.5 5.5 0 0 1 12 6a5.5 5.5 0 0 1 9.5 6c-2.5 4.5-9.5 9-9.5 9z"/></svg></button><img src="assets/catalog/fridge-sidebyside.jpg" alt="מקרר Side-by-Side בגימור שחור"></div>
+          <div class="card-body"><span class="card-brand">Bosch</span><h3 class="card-name">מקרר Side-by-Side שחור</h3>
+            <div class="card-foot"><span class="card-price">₪12,490</span><a href="#" class="card-add"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>הוספה</a></div>
+          </div>
+        </article>
+        <!-- 7 -->
+        <article class="card reveal" data-d="2">
+          <div class="card-img"><button class="card-fav" aria-label="הוספה למועדפים"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.5-9.5-9A5.5 5.5 0 0 1 12 6a5.5 5.5 0 0 1 9.5 6c-2.5 4.5-9.5 9-9.5 9z"/></svg></button><img src="assets/catalog/fridge-builtin.jpg" alt="מקרר בנוי משולב של Gaggenau"></div>
+          <div class="card-body"><span class="card-brand">Gaggenau</span><h3 class="card-name">מקרר בנוי אינטגרלי</h3>
+            <div class="card-foot"><span class="card-price">₪24,900</span><a href="#" class="card-add"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>הוספה</a></div>
+          </div>
+        </article>
+        <!-- 8 -->
+        <article class="card reveal" data-d="3">
+          <div class="card-img"><span class="card-badge sale">מבצע</span><button class="card-fav" aria-label="הוספה למועדפים"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.5-9.5-9A5.5 5.5 0 0 1 12 6a5.5 5.5 0 0 1 9.5 6c-2.5 4.5-9.5 9-9.5 9z"/></svg></button><img src="assets/catalog/fridge-builtin-tall.jpg" alt="מקרר אינטגרלי בנוי גבוה"></div>
+          <div class="card-body"><span class="card-brand">Bauknecht</span><h3 class="card-name">מקרר בנוי No-Frost גבוה</h3>
+            <div class="card-foot"><span class="card-price">₪6,790 <s>₪7,490</s></span><a href="#" class="card-add"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>הוספה</a></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CATEGORY TILES ===== -->
+  <section class="section cats" id="categories">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div><h2>קנו לפי חלל</h2><p>כל מה שהבית צריך — מהמטבח ועד הסלון.</p></div>
+      </div>
+      <div class="cat-grid">
+        <a href="#products" class="ctile reveal">
+          <img src="assets/catalog/kitchen-hero.jpg" alt="מטבחים משולבים בתכנון אישי">
+          <div class="ctile-cap"><div><b>מטבחים משולבים</b><span>תכנון · אספקה · התקנה</span></div><span class="ctile-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M11 6l-6 6 6 6"/></svg></span></div>
+        </a>
+        <a href="#products" class="ctile reveal" data-d="1">
+          <img src="assets/catalog/oven-lifestyle.jpg" alt="תנורים וכיריים לבישול ואפייה">
+          <div class="ctile-cap"><div><b>בישול ואפייה</b><span>תנורים · כיריים · קולטי אדים</span></div><span class="ctile-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M11 6l-6 6 6 6"/></svg></span></div>
+        </a>
+        <a href="#products" class="ctile reveal" data-d="2">
+          <img src="assets/catalog/tv-lifestyle.jpg" alt="מסכי טלוויזיה לחדר המגורים">
+          <div class="ctile-cap"><div><b>חדר מגורים</b><span>מסכי OLED · QLED · 4K/8K</span></div><span class="ctile-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M11 6l-6 6 6 6"/></svg></span></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONSULT (light split) ===== -->
+  <section class="section" id="consult">
+    <div class="wrap consult-grid">
+      <div class="consult-copy reveal">
+        <h2>לא בטוחים מה מתאים? אנחנו כאן.</h2>
+        <p>צוות המומחים שלנו ילווה אתכם מבחירת המוצר ועד התקנה מושלמת — בדיוק לפי הבית, הצרכים והתקציב שלכם.</p>
+        <ul class="consult-list">
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4 10-10"/></svg></span>ייעוץ אישי חינם — בסניף או בטלפון</li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4 10-10"/></svg></span>התאמת מוצרים בנויים למטבח שלכם</li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4 10-10"/></svg></span>התקנה ואחריות מקצה לקצה</li>
+        </ul>
+        <div class="hero-cta" style="margin-top:0">
+          <a href="#footer" class="btn btn-primary">דברו איתנו
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M11 6l-6 6 6 6"/></svg>
+          </a>
+          <a href="#footer" class="btn btn-ghost">לסניפים שלנו</a>
+        </div>
+      </div>
+      <div class="consult-media reveal" data-d="1">
+        <img src="assets/catalog/kitchen-lifestyle.jpg" alt="ייעוץ אישי לתכנון מטבח יוקרה">
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== BRANDS ===== -->
+  <section class="brands" id="brands">
+    <div class="wrap">
+      <p class="brands-label reveal">המותגים המובילים בעולם — נמצאים אצלנו</p>
+      <div class="brands-row reveal" data-d="1">
+        <span>BOSCH</span><span>SIEMENS</span><span>Miele</span><span>LIEBHERR</span>
+        <span>SUB-ZERO</span><span>GAGGENAU</span><span>AEG</span><span>SAMSUNG</span>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer" id="footer">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <a href="#top" class="logo" aria-label="אלקטריק פלוס">
+          <svg viewBox="0 0 200 200" width="36" height="36" role="img" aria-label="Electric Plus">
+            <g fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"><path d="M125 50 H70 V150 H125"/><path d="M70 100 H118"/><path d="M125 150 V50 H162 A27 27 0 0 1 162 104 H125"/></g>
+          </svg>
+          <span class="logo-word"><b>אלקטריק פלוס</b><i>מוצרי חשמל ואלקטרוניקה</i></span>
+        </a>
+        <p>מוצרי חשמל ואלקטרוניקה ברמה אחרת — מותגי יוקרה, ייעוץ אישי, התקנה ושירות מקצה לקצה.</p>
+        <div class="foot-contact">
+          <div class="row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><span>רחוב לח"י 31, בני ברק</span></div>
+          <div class="row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.8a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><span dir="ltr" style="font-variant-numeric:tabular-nums">03-9559090</span></div>
+          <div class="row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>א׳–ה׳ 9:30–20:00 · ו׳/ערבי חג 9:30–13:30</span></div>
+        </div>
+      </div>
+      <div class="foot-col"><h4>קטגוריות</h4><a href="#products">מקררים</a><a href="#products">תנורים וכיריים</a><a href="#products">מדיחי כלים</a><a href="#products">מכונות כביסה</a><a href="#products">מסכי טלוויזיה</a><a href="#products">מיזוג אוויר</a></div>
+      <div class="foot-col"><h4>שירות לקוחות</h4><a href="#footer">צור קשר</a><a href="#footer">התקנה ואחריות</a><a href="#footer">משלוחים</a><a href="#footer">החזרות</a><a href="#footer">שאלות נפוצות</a></div>
+      <div class="foot-col"><h4>אודות</h4><a href="#top">הסיפור שלנו</a><a href="#brands">המותגים שלנו</a><a href="#footer">סניפים</a><a href="#footer">קריירה</a></div>
+      <div class="foot-col"><h4>עקבו אחרינו</h4>
+        <div class="foot-social">
+          <a href="#footer" aria-label="אינסטגרם"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+          <a href="#footer" aria-label="פייסבוק"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h-2.5A3.5 3.5 0 0 0 9 6.5V9H6.5v3H9v9h3v-9h2.5l.5-3H12V6.5a.5.5 0 0 1 .5-.5H15z"/></svg></a>
+          <a href="#footer" aria-label="יוטיוב"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="6" width="19" height="12" rx="3.5"/><path d="M10 9.5l5 2.5-5 2.5z" fill="currentColor" stroke="none"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Electric Plus · אלקטריק פלוס. כל הזכויות שמורות.</span>
+      <span class="proto">אב-טיפוס לבחינה · Electric Plus</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var rm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var burger = document.getElementById('burger');
+  if(burger){ burger.addEventListener('click', function(){ /* demo nav toggle */ burger.setAttribute('aria-expanded', burger.getAttribute('aria-expanded')==='true'?'false':'true'); }); }
+  // chips active toggle
+  document.querySelectorAll('.chip').forEach(function(c){ c.addEventListener('click', function(e){ document.querySelectorAll('.chip').forEach(function(x){x.classList.remove('active')}); c.classList.add('active'); }); });
+  // reveal
+  var reveals = document.querySelectorAll('.reveal');
+  if(rm || !('IntersectionObserver' in window)){ reveals.forEach(function(el){el.classList.add('in')}); }
+  else { var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} }); }, {threshold:.12, rootMargin:'0px 0px -6% 0px'}); reveals.forEach(function(el){ io.observe(el); }); }
+})();
+</script>
+</body>
+</html>
